@@ -18,13 +18,13 @@ EXTRACT_SUFX =		.tgz
 
 MODULES =		lang/go
 
-ALL_TARGET =		humungus.tedunangst.com/r/${HOMEPAGE:T}
+ALL_TARGET =		humungus.tedunangst.com/r/honk
 WRKSRC =		${MODGO_WORKSPACE}/src/${ALL_TARGET}
 
 SUBST_VARS +=		VARBASE
 
-HONKDIR =		${DESTDIR}${VARBASE}/www/${HOMEPAGE:T}
-DOCDIR ?=		${PREFIX}/share/doc/${HOMEPAGE:T}
+HONKDIR =		${DESTDIR}${VARBASE}/www/honk
+DOCDIR ?=		${PREFIX}/share/doc/honk
 
 post-install:
 	${INSTALL_DATA_DIR} ${HONKDIR}/views
