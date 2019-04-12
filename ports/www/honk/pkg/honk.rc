@@ -2,11 +2,11 @@
 #
 # $OpenBSD: rc.template,v 1.12 2018/01/11 19:30:18 rpe Exp $
 
-daemon="${TRUEPREFIX}/bin/${DISTNAME}"
+daemon="${TRUEPREFIX}/bin/honk"
 daemon_flags=
 daemon_rtable=0
 daemon_timeout="30"
-daemon_user="_${DISTNAME}"
+daemon_user="_honk"
 
 . /etc/rc.d/rc.subr
 
@@ -16,13 +16,13 @@ rc_reload=NO
 rc_usercheck=YES
 
 rc_pre() {
- install -d -o ${daemon_user} ${VARBASE}/log/${DISTNAME}
+ install -d -o ${daemon_user} ${VARBASE}/log/honk
 }
 
 rc_start() {
- ${rcexec} "cd ${VARBASE}/www/${DISTNAME} \
+ ${rcexec} "cd ${VARBASE}/www/honk \
 	&& ${daemon} ${daemon_flags} \
-	>> ${VARBASE}/log/${DISTNAME}/${DISTNAME}.log 2>&1"
+	>> ${VARBASE}/log/honk/honk.log 2>&1"
 }
 
 rc_stop() {

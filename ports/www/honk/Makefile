@@ -2,8 +2,7 @@
 
 COMMENT =		federated status updater
 
-VERSION =		0.1.2
-DISTNAME =		honk
+DISTNAME =		honk-0.1.2
 
 CATEGORIES =		www
 
@@ -14,32 +13,27 @@ MAINTAINER =		OpenBSD Ports <ports@openbsd.org>
 # ISC
 PERMIT_PACKAGE_CDROM =	Yes
 
-MASTER_SITES =		https://humungus.tedunangst.com/r/honk/d/
-DISTFILES =		${DISTNAME}-${VERSION}${EXTRACT_SUFX}
+MASTER_SITES =		${HOMEPAGE}/d/
 EXTRACT_SUFX =		.tgz
-PKGNAME =		${DISTNAME}-${VERSION}
 
 MODULES =		lang/go
 
-MODGO_SUBDIR =		${WRKDIST}-${VERSION}
-MODGO_FLAGS +=		-tags "tedunangst.com"
-
-ALL_TARGET =		${DISTNAME}
+ALL_TARGET =		humungus.tedunangst.com/r/${HOMEPAGE:T}
 WRKSRC =		${MODGO_WORKSPACE}/src/${ALL_TARGET}
 
-SUBST_VARS +=		DISTNAME VARBASE
+SUBST_VARS +=		VARBASE
 
-HONKDIR =		${DESTDIR}${VARBASE}/www/${DISTNAME}
-DOCDIR ?=		${PREFIX}/share/doc/${DISTNAME}
+HONKDIR =		${DESTDIR}${VARBASE}/www/${HOMEPAGE:T}
+DOCDIR ?=		${PREFIX}/share/doc/${HOMEPAGE:T}
 
 post-install:
 	${INSTALL_DATA_DIR} ${HONKDIR}/views
-	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${DISTNAME}/views/* \
+	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${ALL_TARGET}/views/* \
 		${HONKDIR}/views/
-	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${DISTNAME}/schema.sql \
+	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${ALL_TARGET}/schema.sql \
 		${HONKDIR}/
 	${INSTALL_DATA_DIR} ${DOCDIR}
-	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${DISTNAME}/README \
+	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${ALL_TARGET}/README \
 		${DOCDIR}/
 
 .include <bsd.port.mk>
