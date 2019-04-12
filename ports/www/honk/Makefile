@@ -17,9 +17,7 @@ MASTER_SITES =		${HOMEPAGE}/d/
 EXTRACT_SUFX =		.tgz
 
 MODULES =		lang/go
-
 ALL_TARGET =		humungus.tedunangst.com/r/honk
-WRKSRC =		${MODGO_WORKSPACE}/src/${ALL_TARGET}
 
 SUBST_VARS +=		VARBASE
 
