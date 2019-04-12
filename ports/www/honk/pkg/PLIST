@@ -1,6 +1,6 @@
 @comment $OpenBSD: PLIST,v$
-@newgroup _${DISTNAME}:819
-@newuser _${DISTNAME}:819:_${DISTNAME}:daemon:Honk user:${VARBASE}/www/${DISTNAME}:/sbin/nologin
+@newgroup _${DISTNAME}:833
+@newuser _${DISTNAME}:833:_${DISTNAME}:daemon:Honk user:${VARBASE}/www/${DISTNAME}:/sbin/nologin
 @rcscript ${RCDIR}/${DISTNAME}
 @bin bin/${DISTNAME}
 share/doc/${DISTNAME}/
