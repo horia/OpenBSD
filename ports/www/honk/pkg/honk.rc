@@ -1,0 +1,32 @@
+#!/bin/ksh
+#
+# $OpenBSD: rc.template,v 1.12 2018/01/11 19:30:18 rpe Exp $
+
+daemon="${TRUEPREFIX}/bin/${DISTNAME}"
+daemon_flags=
+daemon_rtable=0
+daemon_timeout="30"
+daemon_user="_${DISTNAME}"
+
+. /etc/rc.d/rc.subr
+
+pexp="${daemon}${daemon_flags:+ ${daemon_flags}}"
+rc_bg=YES
+rc_reload=NO
+rc_usercheck=YES
+
+rc_pre() {
+ install -d -o ${daemon_user} ${VARBASE}/log/${DISTNAME}
+}
+
+rc_start() {
+ ${rcexec} "cd ${VARBASE}/www/${DISTNAME} \
+	&& ${daemon} ${daemon_flags} \
+	>> ${VARBASE}/log/${DISTNAME}/${DISTNAME}.log 2>&1"
+}
+
+rc_stop() {
+ pkill -T "${daemon_rtable}" -xf "${pexp}"
+}
+
+rc_cmd $1

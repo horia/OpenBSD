@@ -1,0 +1,25 @@
+@comment $OpenBSD: PLIST,v$
+@newgroup _${DISTNAME}:819
+@newuser _${DISTNAME}:819:_${DISTNAME}:daemon:Honk user:${VARBASE}/www/${DISTNAME}:/sbin/nologin
+@rcscript ${RCDIR}/${DISTNAME}
+@bin bin/${DISTNAME}
+share/doc/${DISTNAME}/
+share/doc/${DISTNAME}/README
+@cwd ${VARBASE}/www
+@mode 775
+@owner _${DISTNAME}
+@group _${DISTNAME}
+${DISTNAME}/
+${DISTNAME}/schema.sql
+@mode
+@owner
+@group
+${DISTNAME}/views/
+${DISTNAME}/views/header.html
+${DISTNAME}/views/homepage.html
+${DISTNAME}/views/honk.html
+${DISTNAME}/views/honkers.html
+${DISTNAME}/views/honkform.html
+${DISTNAME}/views/honkpage.html
+${DISTNAME}/views/login.html
+${DISTNAME}/views/style.css
