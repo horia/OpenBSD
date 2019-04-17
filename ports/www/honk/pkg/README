@@ -19,7 +19,6 @@ server "honk.example.com" {
   }
   location "*" {
     fastcgi socket ":31337"
-    root "/nonexistent"
   }
 }
 
