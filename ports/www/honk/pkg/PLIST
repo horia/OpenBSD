@@ -1,25 +1,33 @@
 @comment $OpenBSD: PLIST,v$
 @newgroup _honk:819
-@newuser _honk:819:_honk:daemon:Honk user:${VARBASE}/www/honk:/sbin/nologin
+@newuser _honk:819:_honk:daemon:Honk User:${VARBASE}/_honk:/sbin/nologin
 @rcscript ${RCDIR}/honk
 @bin bin/honk
 share/doc/honk/
 share/doc/honk/README
-@cwd ${VARBASE}/www
-@mode 775
+share/doc/honk/manual.txt
+share/doc/honk/ping.txt
+share/doc/honk/security.txt
+share/doc/honk/spec.txt
+share/doc/pkg-readmes/${PKGSTEM}
+@cwd ${VARBASE}
+@mode 770
 @owner _honk
 @group _honk
-honk/
-honk/schema.sql
+_honk/
+@mode 640
+_honk/schema.sql
+@mode 750
+_honk/views/
+@mode 640
+_honk/views/header.html
+_honk/views/homepage.html
+_honk/views/honk.html
+_honk/views/honkers.html
+_honk/views/honkform.html
+_honk/views/honkpage.html
+_honk/views/login.html
+_honk/views/style.css
 @mode
 @owner
 @group
-honk/views/
-honk/views/header.html
-honk/views/homepage.html
-honk/views/honk.html
-honk/views/honkers.html
-honk/views/honkform.html
-honk/views/honkpage.html
-honk/views/login.html
-honk/views/style.css

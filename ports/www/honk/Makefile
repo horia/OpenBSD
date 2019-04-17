@@ -2,12 +2,10 @@
 
 COMMENT =		federated status updater
 
-DISTNAME =		honk-0.1.2
-
+DISTNAME =		honk-0.2.2
 CATEGORIES =		www
 
 HOMEPAGE =		https://humungus.tedunangst.com/r/honk
-
 MAINTAINER =		OpenBSD Ports <ports@openbsd.org>
 
 # ISC
@@ -17,11 +15,13 @@ MASTER_SITES =		${HOMEPAGE}/d/
 EXTRACT_SUFX =		.tgz
 
 MODULES =		lang/go
+
+NO_TEST =		yes
 ALL_TARGET =		humungus.tedunangst.com/r/honk
 
 SUBST_VARS +=		VARBASE
 
-HONKDIR =		${DESTDIR}${VARBASE}/www/honk
+HONKDIR =		${DESTDIR}${VARBASE}/_honk
 DOCDIR ?=		${PREFIX}/share/doc/honk
 
 post-install:
@@ -32,6 +32,7 @@ post-install:
 		${HONKDIR}/
 	${INSTALL_DATA_DIR} ${DOCDIR}
 	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${ALL_TARGET}/README \
+		${MODGO_WORKSPACE}/src/${ALL_TARGET}/docs/* \
 		${DOCDIR}/
 
 .include <bsd.port.mk>

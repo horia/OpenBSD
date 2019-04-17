@@ -1,6 +1,6 @@
 #!/bin/ksh
 #
-# $OpenBSD: rc.template,v$
+# $OpenBSD$
 
 daemon="${TRUEPREFIX}/bin/honk"
 daemon_flags=
@@ -20,7 +20,7 @@ rc_pre() {
 }
 
 rc_start() {
- ${rcexec} "cd ${VARBASE}/www/honk \
+ ${rcexec} "cd ${VARBASE}/_honk \
 	&& ${daemon} ${daemon_flags} \
 	>> ${VARBASE}/log/honk/honk.log 2>&1"
 }

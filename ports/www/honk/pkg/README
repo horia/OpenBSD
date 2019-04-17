@@ -1,0 +1,73 @@
+$OpenBSD$
+
++-------------------------------------------------------------------------------
+| Running ${PKGSTEM} on OpenBSD
++-------------------------------------------------------------------------------
+
+Initial configuration
+=====================
+
+honk expects to be fronted by a TLS terminating reverse proxy.
+Either relayd(8) or slowcgi(8):
+
+# fastcgi
+server "honk.example.com" {
+  listen on * tls port https
+  tls {
+    certificate "/etc/ssl/honk.example.com.crt"
+    key "/etc/ssl/private/honk.example.com.key"
+  }
+  location "*" {
+    fastcgi socket ":31337"
+    root "/nonexistent"
+  }
+}
+
+# fastcgi or relayd
+server "honk.example.com" {
+  listen on * port http
+  location "/.well-known/acme-challenge/*" {
+    root "/acme"
+    request strip 2
+    pass
+  }
+  location "*" {
+    block return 302 "https://honk.example.com$REQUEST_URI"
+  }
+}
+
+# relayd.conf
+ext_addr="192.168.1.1"
+honk_port="31337"
+table <honk> { 127.0.0.1 }
+
+http protocol https {
+  match request header append "X-Forwarded-For" value "$REMOTE_ADDR"
+  match request header append "X-Forwarded-By" \
+    value "$SERVER_ADDR:$SERVER_PORT"
+  match request header set "Connection" value "close"
+
+  tcp { sack, backlog 128 }
+}
+
+relay wwwtls {
+  listen on $ext_addr port https tls
+  protocol https
+
+  forward to <honk> port $honk_port \
+    check http "/" code 200
+}
+
+# relayd key
+cd /etc/ssl
+ln -s honk.example.com.fullchain.pem 192.168.1.1.crt
+cd /etc/ssl/private
+ln -s honk.example.com.key 192.168.1.1.key
+
+# relayd pf.conf
+anchor "relayd/*"
+
+Usage
+=====
+
+Please see /usr/local/share/doc/honk
