@@ -1,6 +1,6 @@
 @comment $OpenBSD: PLIST,v$
-@newgroup _honk:819
-@newuser _honk:819:_honk:daemon:Honk User:${VARBASE}/_honk:/sbin/nologin
+@newgroup _honk:833
+@newuser _honk:833:_honk:daemon:Honk User:${VARBASE}/_honk:/sbin/nologin
 @rcscript ${RCDIR}/honk
 @bin bin/honk
 share/doc/honk/
