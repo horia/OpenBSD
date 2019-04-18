@@ -28,6 +28,3 @@ _honk/views/honkform.html
 _honk/views/honkpage.html
 _honk/views/login.html
 _honk/views/style.css
-@mode
-@owner
-@group

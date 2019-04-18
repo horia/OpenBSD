@@ -2,7 +2,7 @@
 
 COMMENT =		federated status updater
 
-DISTNAME =		honk-0.2.2
+DISTNAME =		honk-0.2.4
 CATEGORIES =		www
 
 HOMEPAGE =		https://humungus.tedunangst.com/r/honk
