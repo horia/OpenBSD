@@ -21,7 +21,7 @@ ALL_TARGET =		humungus.tedunangst.com/r/honk
 
 SUBST_VARS +=		VARBASE
 
-HONKDIR =		${DESTDIR}${VARBASE}/_honk
+HONKDIR =		${DESTDIR}${VARBASE}/honk
 DOCDIR ?=		${PREFIX}/share/doc/honk
 
 post-install:
@@ -31,8 +31,7 @@ post-install:
 	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${ALL_TARGET}/schema.sql \
 		${HONKDIR}/
 	${INSTALL_DATA_DIR} ${DOCDIR}
-	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${ALL_TARGET}/README \
-		${MODGO_WORKSPACE}/src/${ALL_TARGET}/docs/* \
+	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${ALL_TARGET}/{README,docs/*} \
 		${DOCDIR}/
 
 .include <bsd.port.mk>

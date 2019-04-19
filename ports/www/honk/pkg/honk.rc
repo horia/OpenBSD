@@ -20,7 +20,7 @@ rc_pre() {
 }
 
 rc_start() {
- ${rcexec} "cd ${VARBASE}/_honk \
+ ${rcexec} "cd ${VARBASE}/honk \
 	&& ${daemon} ${daemon_flags} \
 	>> ${VARBASE}/log/honk/honk.log 2>&1"
 }

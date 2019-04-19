@@ -1,6 +1,6 @@
 @comment $OpenBSD: PLIST,v$
 @newgroup _honk:833
-@newuser _honk:833:_honk:daemon:Honk User:${VARBASE}/_honk:/sbin/nologin
+@newuser _honk:833:_honk:daemon:Honk User:${VARBASE}/honk:/sbin/nologin
 @rcscript ${RCDIR}/honk
 @bin bin/honk
 share/doc/honk/
@@ -14,17 +14,17 @@ share/doc/pkg-readmes/${PKGSTEM}
 @mode 770
 @owner _honk
 @group _honk
-_honk/
+honk/
 @mode 640
-_honk/schema.sql
+honk/schema.sql
 @mode 750
-_honk/views/
+honk/views/
 @mode 640
-_honk/views/header.html
-_honk/views/homepage.html
-_honk/views/honk.html
-_honk/views/honkers.html
-_honk/views/honkform.html
-_honk/views/honkpage.html
-_honk/views/login.html
-_honk/views/style.css
+honk/views/header.html
+honk/views/homepage.html
+honk/views/honk.html
+honk/views/honkers.html
+honk/views/honkform.html
+honk/views/honkpage.html
+honk/views/login.html
+honk/views/style.css
