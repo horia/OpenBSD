@@ -10,10 +10,6 @@ daemon_user="_honk"
 rc_bg=YES
 rc_reload=NO
 
-rc_pre() {
- install -d -o ${daemon_user} ${VARBASE}/log/honk
-}
-
 rc_start() {
  ${rcexec} "cd ${VARBASE}/honk &&
   ${daemon} ${daemon_flags} 2>&1 |
