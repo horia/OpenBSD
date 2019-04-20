@@ -6,7 +6,6 @@ DISTNAME =		honk-0.2.4
 CATEGORIES =		www
 
 HOMEPAGE =		https://humungus.tedunangst.com/r/honk
-MAINTAINER =		OpenBSD Ports <ports@openbsd.org>
 
 # ISC
 PERMIT_PACKAGE_CDROM =	Yes
@@ -21,17 +20,17 @@ ALL_TARGET =		humungus.tedunangst.com/r/honk
 
 SUBST_VARS +=		VARBASE
 
-HONKDIR =		${DESTDIR}${VARBASE}/honk
 DOCDIR ?=		${PREFIX}/share/doc/honk
+EXAMPLESDIR = 		${PREFIX}/share/examples/honk
 
 post-install:
-	${INSTALL_DATA_DIR} ${HONKDIR}/views
-	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${ALL_TARGET}/views/* \
-		${HONKDIR}/views/
-	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${ALL_TARGET}/schema.sql \
-		${HONKDIR}/
 	${INSTALL_DATA_DIR} ${DOCDIR}
 	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${ALL_TARGET}/{README,docs/*} \
 		${DOCDIR}/
+	${INSTALL_DATA_DIR} ${EXAMPLESDIR}/views
+	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${ALL_TARGET}/views/* \
+		${EXAMPLESDIR}/views/
+	${INSTALL_DATA} ${MODGO_WORKSPACE}/src/${ALL_TARGET}/schema.sql \
+		${EXAMPLESDIR}/
 
 .include <bsd.port.mk>
