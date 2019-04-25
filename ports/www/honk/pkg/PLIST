@@ -25,8 +25,6 @@ share/examples/honk/schema.sql
 share/examples/honk/views/
 share/examples/honk/views/header.html
 @sample ${VARBASE}/honk/views/header.html
-share/examples/honk/views/homepage.html
-@sample ${VARBASE}/honk/views/homepage.html
 share/examples/honk/views/honk.html
 @sample ${VARBASE}/honk/views/honk.html
 share/examples/honk/views/honkers.html
@@ -39,3 +37,5 @@ share/examples/honk/views/login.html
 @sample ${VARBASE}/honk/views/login.html
 share/examples/honk/views/style.css
 @sample ${VARBASE}/honk/views/style.css
+share/examples/honk/views/zonkers.html
+@sample ${VARBASE}/honk/views/zonkers.html
