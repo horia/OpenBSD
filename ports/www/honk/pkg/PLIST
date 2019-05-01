@@ -23,6 +23,8 @@ share/examples/honk/
 share/examples/honk/schema.sql
 @sample ${VARBASE}/honk/schema.sql
 share/examples/honk/views/
+share/examples/honk/views/combos.html
+@sample ${VARBASE}/honk/views/combos.html
 share/examples/honk/views/header.html
 @sample ${VARBASE}/honk/views/header.html
 share/examples/honk/views/honk.html
